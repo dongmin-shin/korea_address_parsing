@@ -52,21 +52,6 @@ var createParsingRange = function(start, end, address) {
     }
 }
 
-var clone = function (obj) {
-    if (obj === null || typeof (obj) !== 'object') {
-        return obj;
-    }
-
-    var copy = obj.constructor();
-    for (var attr in obj) {
-        if (obj.hasOwnProperty(attr)) {
-            copy[attr] = clone[attr];
-        }
-    }
-
-    return copy;
-}
-
 var getAddressNumberParsingRange = function (text) {
     var addressNumberRange = new Array();
 
@@ -253,39 +238,3 @@ window.onload = function() {
         convertResultDiv.innerHTML = toConvertAddress(mergedRange, targetText);
     };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
