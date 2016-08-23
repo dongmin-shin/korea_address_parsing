@@ -1,9 +1,9 @@
 /**
  * Created by Naver on 2016. 8. 22..
  */
-var baseRegex = /([가-힣]+(시|군|구)\s)?[가-힣]+[1-9]?(읍|면|동|가)(\s[가-힣]+[1-9]?리)?/g;
+var baseAddressNumberRegex = /([가-힣]+(시|군|구)\s)?[가-힣]+[1-9]?(읍|면|동|가)(\s[가-힣]+[1-9]?리)?/g;
 var getUniqueBaseAddressNumberResult = function (text) {
-    var baseResult = text.match(baseRegex);
+    var baseResult = text.match(baseAddressNumberRegex);
     if (baseResult === null || baseResult.length == 0) {
         return new Array();
     }
@@ -23,7 +23,7 @@ var getAddressNumberResult = function (text) {
 }
 
 var getAddressStreetResult = function (text) {
-    var addressStreetRegex = /([가-힣]+도\s)?([가-힣]+시\s)?([가-힣]+구\s)?([가-힣]+(읍|면)\s)?[가-힣]+([1-9]+)?(로|가(길)?|길|번길|리)(\s지하([1-9]+호)?)?(\s[0-9]+(\-[0-9]+)?)?(,(\s[가-힣0-9A-Za-z]+(동|층|호))+)?(\s[가-힣]+)?(\s[(]+[가-힣\s]+(,\s)?([가-힣\s]+)?[)])?/g;
+    var addressStreetRegex = /([가-힣]+도\s)?([가-힣]+시\s)?([가-힣]+(군|구)\s)?([가-힣]+(읍|면)\s)?[가-힣]+([1-9]+)?(로|가(길)?|길|번길|리)(\s지하([1-9]+호)?)?(\s[0-9]+(\-[0-9]+)?)?(,(\s[가-힣0-9A-Za-z]+(동|층|호))+)?(\s[가-힣]+)?(\s[(]+[가-힣\s]+(,\s)?([가-힣\s]+)?[)])?/g;
     var addressResult = text.match(addressStreetRegex);
 
     return addressResult;
