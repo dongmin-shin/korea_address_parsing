@@ -23,7 +23,7 @@ var getAddressNumberResult = function (text) {
 }
 
 var getAddressStreetResult = function (text) {
-    var addressStreetRegex = /([가-힣]+도\s)?([가-힣]+시\s)?([가-힣]+(군|구)\s)?([가-힣]+(읍|면)\s)?[가-힣]+([1-9]+)?(로|가(길)?|길|번길|리)(\s지하([1-9]+호)?)?(\s[0-9]+(\-[0-9]+)?)?(,(\s[가-힣0-9A-Za-z]+(동|층|호))+)?(\s[가-힣]+)?(\s[(]+[가-힣\s]+(,\s)?([가-힣\s]+)?[)])?/g;
+    var addressStreetRegex = /([가-힣]+도\s)?([가-힣]+시\s)?([가-힣]+(시|군|구)\s)([가-힣]+(읍|면)\s)?[가-힣]+([1-9]+)?(로|가(길)?|길|번길|리)(\s[0-9]+번가길)?(\s지하([1-9]+호)?)?(\s[0-9]+(\-[0-9]+)?)?(,(\s[가-힣0-9A-Za-z]+(동|층|호))+)?(\s[가-힣]+)?(\s[(]+[가-힣\s]+(,\s)?([가-힣\s]+)?[)])?/g;
     var addressResult = text.match(addressStreetRegex);
 
     return addressResult;
