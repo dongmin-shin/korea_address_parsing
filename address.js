@@ -86,7 +86,7 @@ var getAddressStreetParsingRange = function (text) {
     return addressStreetRange;
 }
 
-var toConvertAddress = function (mergedRange, text) {
+var convertToLinkedText = function (mergedRange, text) {
 
     var convertText = "";
     var subStrStartIndex = 0;
@@ -113,12 +113,9 @@ var toConvertAddress = function (mergedRange, text) {
 
 var getMergedRange = function (srcArray, destArray) {
     var mergedRange = new Array();
-    var cursorIndex = 0;
-
     var remainsRange = new Array();
 
     // addressNumberRange 와 addressStreetRange를 Merge
-
     var cursorIndex = 0;
     for (var srcIndex in srcArray) {
         var srcRange = srcArray[srcIndex];
@@ -235,6 +232,6 @@ window.onload = function() {
 
         console.log(mergedRange);
 
-        convertResultDiv.innerHTML = toConvertAddress(mergedRange, targetText);
+        convertResultDiv.innerHTML = convertToLinkedText(mergedRange, targetText);
     };
 }
